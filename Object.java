@@ -29,4 +29,14 @@ public class Object
     {for(int j=0; j<position.length; j++)
      {System.out.print(position[i][j]+", ");}}
   }
+    
+    public void move(double[][] position, double gravity)
+    {
+        for(int i=0; i<position.length; i++)
+            for(int j=0; j<position.length; j++)
+                {
+                 position[i][j] = position[i][j] + gravity;
+                }
+    }
+        
 }
