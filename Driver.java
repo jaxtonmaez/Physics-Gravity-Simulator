@@ -13,13 +13,13 @@ public class Driver
     double aPos[][] = {{1,2},{1,1}};
     Object a = new Object("Mars", aPos);
     
-    a.printPosition();
+   //a.printPosition();
     
-    double arr[][] = a.getPosition();
+   // double arr[][] = a.getPosition();
    // System.out.println(arr);
-    
-    
-    
+      
+    a.move(aPos, 9);
+    a.printPosition();
   }
 }
 
