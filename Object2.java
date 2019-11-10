@@ -2,18 +2,17 @@
 * Jaxton Maez
 * CS 1410
 * 11/10/19
-* Temp file only!
 */
 
 import java.security.SecureRandom;
 
-public class Object
+public class Object2
 {
   
   protected String name = null;
   protected double[][] position = new double[10][10];
   
-  public Object(String name, double[][] position)
+  public Object2(String name, double[][] position)
   {
    this.name = name;
    this.position = position;
