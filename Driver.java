@@ -2,7 +2,6 @@
 * Jaxton Maez
 * CS 1410
 * 11/10/19
-* Temp file only!
 */
 
 import java.security.SecureRandom;
@@ -12,7 +11,7 @@ public class Driver
   public static void main(String[] args)
   {
     double aPos[][] = {{1,2},{1,1}};
-    Object a = new Object("Mars", aPos);
+    Object2 a = new Object2("Mars", aPos);
     
    //a.printPosition();
     
