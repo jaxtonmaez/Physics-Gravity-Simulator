@@ -41,6 +41,19 @@ public class Space
         
         return gravity;
     }
+    
+    public static double[] Move(Object ob, Object ob2)
+    {
+        double[] gravity = Gravity(ob,ob2);
+        double[] veloc1 = ob.getVeloc();
+        double iComp1 = veloc1[0] + gravity[0]/2*ob.getMass();
+        double jComp1 = veloc1[1] + gravity[1]/2*ob.getMass();
+        double iComp2 = veloc1[0] + gravity[2]/2*ob2.getMass();
+        double jComp2 = veloc1[1] + gravity[3]/2*ob2.getMass();
+        double[] move = {iComp1,jComp1,iComp2,jComp2};
+        
+        return move;    
+    }
 	
 /*
 	public static double[] Move1(Object ob, Object ob2)  //move for object1
