@@ -30,11 +30,15 @@ public class PhysDriver{
     {
 		double a = Space.Distance(ob, ob2);
 		double[] b = Space.Gravity(ob, ob2);
+        double[] c = Space.Move(ob,ob2);
 		System.out.println("The distance: "+a);
+        System.out.println("Object One: ");
         for(int i=0; i<=1; i++)
-        {System.out.println("Ob1 gravity: " +b[i]);}
+        {System.out.println(" gravity: " +b[i]+"\n the motion: "+c[i]);}
+        System.out.println("Object Two: ");
         for(int j=2; j<=3; j++)
-        {System.out.println("ob2 gravity :"+b[j]);}
+        {System.out.println(" gravity: "+b[j]+"\n the motion: "+c[j]);}
+        
         
        // double[] arr = Space.Move1(ob, ob2);
        // for(int i=0; i<=1; i++)
