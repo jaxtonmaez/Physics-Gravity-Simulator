@@ -1,9 +1,13 @@
-
+/*
+* Jaxton Maez
+* CS 1410-02
+* 12/3/19
+*/
 import java.security.SecureRandom;
 
 public class Space
 {
-	private static int[][] space;
+	private static double[][] space;
 	private int height;
 	private int width;
 	public int time = 0;    //plan for a loop in the driver, where every time all values are calculated time++. 
@@ -18,10 +22,12 @@ public class Space
 
 	public Space(int height, int width)  //creates a field
 	{
-		space = new int [width][height];
+		space = new double [width][height];
 		this.width = width;
 		this.height = height;
 	}
+	public int getHeight() {return height;}
+	public int getWidth() {return width;}
 	
 	public static double Distance(Object ob, Object ob2) //returns distance between two objects
 	{
@@ -42,53 +48,39 @@ public class Space
         return gravity;
     }
     
-    public static double[] Move(Object ob, Object ob2)
+    public static double[] Move(Object ob, Object ob2)  //return deltaX and deltaY for 1&2, return the delta array
     {
         double[] gravity = Gravity(ob,ob2);
-        double[] veloc1 = ob.getVeloc();
-        double iComp1 = veloc1[0] + gravity[0]/2*ob.getMass();
-        double jComp1 = veloc1[1] + gravity[1]/2*ob.getMass();
-        double iComp2 = veloc1[0] + gravity[2]/2*ob2.getMass();
-        double jComp2 = veloc1[1] + gravity[3]/2*ob2.getMass();
-        double[] move = {iComp1,jComp1,iComp2,jComp2};
+        double iComp1 = ob.getvelocX() + gravity[0]/2*ob.getMass();
+        double jComp1 = ob.getvelocY() + gravity[1]/2*ob.getMass();
+        double iComp2 = ob2.getvelocX() + gravity[2]/2*ob2.getMass();
+        double jComp2 = ob2.getvelocY() + gravity[3]/2*ob2.getMass();
+        double[] move= {iComp1,jComp1,iComp2,jComp2};
+        
+        ob.setX(move[0]);
+        ob.setY(move[1]);
+        ob2.setX(move[2]);
+        ob2.setY(move[3]);
         
         return move;    
     }
+    public static double[] deltaVeloc(Object ob, Object ob2)
+    {
+    	double[] gravity = Gravity(ob,ob2);
+        double iComp1 = ob.getvelocX()+gravity[0];
+        double jComp1 = ob.getvelocY()+gravity[1];
+        double iComp2 = ob2.getvelocX()+gravity[2];
+        double jComp2 = ob2.getvelocY()+gravity[3];
+        double[] velocity = {iComp1,jComp1,iComp2,jComp2};
+    	
+   // 	ob.setvelocX(velocity[0]);
+    	ob.setvelocY(velocity[1]);
+    	ob2.setvelocX(velocity[2]);
+    	ob2.setvelocY(velocity[3]);
+        
+    	return velocity;
+    }
 	
-/*
-	public static double[] Move1(Object ob, Object ob2)  //move for object1
-	{	
-		double accel1 = ob.Gravity(ob, ob2)/ob.getMass();
-		//double finalVelocXa = obVeloc[0] + accelA * time;
-		//double finalVelocYa = ob.getVeloc() ;
-		double[] deltaX1 = {0,0};      //assume time passed is always 1s;
-        
-	   for(int i=0; i<=1; i++)
-        {   
-        double[] veloc1 = ob.getVeloc();
-        deltaX1[i] = veloc1[i] + .5*accel1;  
-        }
-		
-    return deltaX1;
-	}
-    public static double[] Move2(Object ob, Object ob2)     //Move method for object 2
-	{	
-		double accel2 = ob.Gravity(ob, ob2)/ob2.getMass();
-		
-		//double finalVelocXa = obVeloc[0] + accelA * time;
-		//double finalVelocYa = ob.getVeloc() ;
-        //assume time passed is always 1s;
-       double[] deltaX2 = {0,0};
-        
-	   for(int i=0; i<=1; i++)
-        {   
-        double[] veloc2 = ob2.getVeloc(); 
-        deltaX2[i] = veloc2[i] + .5*accel2;
-        }
-		
-    return deltaX2;
-	}
-    */
     
 
 }
