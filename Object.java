@@ -4,9 +4,6 @@
 * 12/3/19
 */
 
-import java.security.SecureRandom;
-import java.util.Scanner;
-
 public abstract class Object
 {
     	
@@ -25,6 +22,8 @@ public abstract class Object
 	public abstract double getvelocY();
 	public abstract double getX();
 	public abstract double getY();
+	public abstract void setName(String name);
+	public abstract void setMass(double mass);
     public abstract void setX(double x);
     public abstract void setY(double y);
     public abstract void setvelocX(double velocX);
