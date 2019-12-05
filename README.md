@@ -20,5 +20,5 @@ the time counter is increased by one. Once calculated, the amount each should mo
 calculated. The loop then repeats until they either leave the region, collide, or remain steady for at least time=180,000 
 seconds.  
 
-As such, the data is very chaotic. Admittedtly, Newton's Universal Law of Gravitation may not have been the best choice of
-equation for this application. But any higher level gravity equation would be very complex to solve here.
+Admittedtly, Newton's Universal Law of Gravitation may not have been the best choice of equation for this application. But any higher 
+level gravity equation would be very complex to solve here.
