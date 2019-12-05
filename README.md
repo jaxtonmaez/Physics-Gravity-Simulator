@@ -5,9 +5,9 @@ The UserInterface.java contains the main class and is the driver.
 DataPlotter.nb is a Mathematica File and can ONLY be used in Wolfram Mathematica!
 
 The program writes the data to two files. The 'data.txt' file is a readable file with all the information labeled. The 
-'Mathematica'.txt is a file readable by Mathematica using the Import[file] command, which can then be plotted using
-ListPlot[data]. These files are found in the main project folder. They are reset each time the program runs, and must be copied
-into a separate folder if they are to be kept.
+'Mathematica'.txt is a file readable by the 'DataPlotter.nb' file which is a Wolfram Mathematica file. Click the Open Mathematica File 
+button, press 'Shift-Enter' while in Mathematica. This will give you a graph of the objects positions. 
+
 
 There is a Print Interval variable. Default is 3600. This means every 3600 seconds (loops), data is written into the files. If 
 data were written every loop, it becomes very easy to run out of memory. Some simulations can run up to 180,000 times before 
