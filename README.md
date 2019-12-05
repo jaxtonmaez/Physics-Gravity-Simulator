@@ -1,6 +1,7 @@
 # Physics-Simulator
 
 The UserInterface.java contains the main class and is the driver. 
+DataPlotter.nb is a Mathematica File and can ONLY be used in Wolfram Mathematica!
 
 The program writes the data to two files. The 'data.txt' file is a readable file with all the information labeled. The 
 'Mathematica'.txt is a file readable by Mathematica using the Import[file] command, which can then be plotted using
