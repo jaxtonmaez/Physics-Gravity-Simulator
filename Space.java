@@ -3,14 +3,13 @@
 * CS 1410-02
 * 12/3/19
 */
-import java.security.SecureRandom;
 
 public class Space
 {
+	@SuppressWarnings("unused")
 	private static double[][] space;
 	private int height;
 	private int width;
-	public int time = 0;    //plan for a loop in the driver, where every time all values are calculated time++. 
 	
 	public static double bigG = 6.67*Math.pow(10, -11);
 
@@ -73,7 +72,7 @@ public class Space
         double jComp2 = ob2.getvelocY()+gravity[3];
         double[] velocity = {iComp1,jComp1,iComp2,jComp2};
     	
-   // 	ob.setvelocX(velocity[0]);
+    	ob.setvelocX(velocity[0]);
     	ob.setvelocY(velocity[1]);
     	ob2.setvelocX(velocity[2]);
     	ob2.setvelocY(velocity[3]);
