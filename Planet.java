@@ -12,7 +12,7 @@ public class Planet extends Object
 	{
 		name = null;
 		mass = 0;
-		sp = sp;
+		sp = null;
 		x = 0;
 		y = 0;
 		velocX = 0;
@@ -35,6 +35,8 @@ public class Planet extends Object
 	public double getvelocY(){return velocY;}
 	public double getX(){return x;}
 	public double getY(){return y;}
+	public void setName(String name) {this.name=name;}
+	public void setMass(double mass) {this.mass = mass;}
     public void setX(double x){this.x=x;}
     public void setY(double y){this.y=y;}
     public void setvelocX(double velocX){this.velocX = velocX;}
