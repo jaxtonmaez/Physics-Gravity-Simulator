@@ -1,25 +1,15 @@
-import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Desktop;
 import javax.swing.JButton;
 import javax.swing.JFrame;
-import javax.swing.JPanel;
-import java.awt.GridBagLayout;
 import javax.swing.JLabel;
-import java.awt.GridBagConstraints;
-import java.awt.Insets;
-import java.awt.GridLayout;
-import java.awt.FlowLayout;
-import javax.swing.BoxLayout;
-import javax.swing.SwingConstants;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.io.IOException;
-
 import javax.swing.JTextField;
 import javax.swing.JTextPane;
 
+@SuppressWarnings("serial")
 public class UserInterface extends JFrame{
 	private JTextField txtName;
 	private JTextField txtMass;
@@ -27,13 +17,19 @@ public class UserInterface extends JFrame{
 	private JTextField txtYVelocity;
 	private JTextField txtXPosition;
 	private JTextField txtYPosition;
-	private JTextField txtMars;
-	private JTextField textField_1;
-	private JTextField textField_2;
-	private JTextField textField_3;
-	private JTextField textField_4;
-	private JTextField textField_5;
+	private JTextField txtName2;
+	private JTextField txtMass2;
+	private JTextField txtXVelocity2;
+	private JTextField txtYVelocity2;
+	private JTextField txtXPosition2;
+	private JTextField txtYPosition2;
 	private JTextField txtPrintInterval;
+	
+    public static Space sp = new Space(10000,10000);    //A square region of space with side length 50;
+	public static double maxDistance = Math.pow(Math.pow(sp.getHeight(),2)+Math.pow(sp.getWidth(), 2),2); //max distance of region 
+	private static Object ob = new Planet("Null", 300000, 10, 10, sp, 0, 0);   //create an object
+	private static Object ob2 = new Planet("Null", 200000, 0, 0, sp, 0, 0);
+	
 	public UserInterface() {
 		getContentPane().setBackground(Color.LIGHT_GRAY);
 		setTitle("Gravity");
@@ -50,7 +46,7 @@ public class UserInterface extends JFrame{
 		txtName.setColumns(10);
 		
 		txtMass = new JTextField();
-		txtMass.setText("300000");
+		txtMass.setText("10000");
 		txtMass.setBounds(10, 81, 152, 20);
 		getContentPane().add(txtMass);
 		txtMass.setColumns(10);
@@ -60,7 +56,7 @@ public class UserInterface extends JFrame{
 		txtXVelocity.setBounds(10, 126, 152, 20);
 		getContentPane().add(txtXVelocity);
 		txtXVelocity.setColumns(10);
-		
+
 		txtYVelocity = new JTextField();
 		txtYVelocity.setText("10");
 		txtYVelocity.setBounds(10, 169, 152, 20);
@@ -68,56 +64,56 @@ public class UserInterface extends JFrame{
 		txtYVelocity.setColumns(10);
 		
 		txtXPosition = new JTextField();
-		txtXPosition.setText("500");
+		txtXPosition.setText("1");
 		txtXPosition.setBounds(10, 214, 152, 20);
 		getContentPane().add(txtXPosition);
 		txtXPosition.setColumns(10);
 		
 		txtYPosition = new JTextField();
-		txtYPosition.setText("1000");
+		txtYPosition.setText("1");
 		txtYPosition.setBounds(10, 258, 152, 20);
 		getContentPane().add(txtYPosition);
 		txtYPosition.setColumns(10);
 		
 		JLabel lblObject = new JLabel("Object 2:");
-		lblObject.setBounds(172, 0, 46, 14);
+		lblObject.setBounds(172, 0, 112, 14);
 		getContentPane().add(lblObject);
 		
-		txtMars = new JTextField();
-		txtMars.setText("Mars");
-		txtMars.setColumns(10);
-		txtMars.setBounds(172, 37, 152, 20);
-		getContentPane().add(txtMars);
+		txtName2 = new JTextField();
+		txtName2.setText("Mars");
+		txtName2.setColumns(10);
+		txtName2.setBounds(172, 37, 152, 20);
+		getContentPane().add(txtName2);
 		
-		textField_1 = new JTextField();
-		textField_1.setText("200000");
-		textField_1.setColumns(10);
-		textField_1.setBounds(172, 81, 152, 20);
-		getContentPane().add(textField_1);
+		txtMass2 = new JTextField();
+		txtMass2.setText("10000");
+		txtMass2.setColumns(10);
+		txtMass2.setBounds(172, 81, 152, 20);
+		getContentPane().add(txtMass2);
 		
-		textField_2 = new JTextField();
-		textField_2.setText("15");
-		textField_2.setColumns(10);
-		textField_2.setBounds(172, 126, 152, 20);
-		getContentPane().add(textField_2);
+		txtXVelocity2 = new JTextField();
+		txtXVelocity2.setText("10");
+		txtXVelocity2.setColumns(10);
+		txtXVelocity2.setBounds(172, 126, 152, 20);
+		getContentPane().add(txtXVelocity2);
 		
-		textField_3 = new JTextField();
-		textField_3.setText("-12");
-		textField_3.setColumns(10);
-		textField_3.setBounds(172, 169, 152, 20);
-		getContentPane().add(textField_3);
+		txtYVelocity2 = new JTextField();
+		txtYVelocity2.setText("10");
+		txtYVelocity2.setColumns(10);
+		txtYVelocity2.setBounds(172, 169, 152, 20);
+		getContentPane().add(txtYVelocity2);
 		
-		textField_4 = new JTextField();
-		textField_4.setText("30000");
-		textField_4.setColumns(10);
-		textField_4.setBounds(172, 214, 152, 20);
-		getContentPane().add(textField_4);
+		txtXPosition2 = new JTextField();
+		txtXPosition2.setText("15");
+		txtXPosition2.setColumns(10);
+		txtXPosition2.setBounds(172, 214, 152, 20);
+		getContentPane().add(txtXPosition2);
 		
-		textField_5 = new JTextField();
-		textField_5.setText("500");
-		textField_5.setColumns(10);
-		textField_5.setBounds(172, 258, 152, 20);
-		getContentPane().add(textField_5);
+		txtYPosition2 = new JTextField();
+		txtYPosition2.setText("15");
+		txtYPosition2.setColumns(10);
+		txtYPosition2.setBounds(172, 258, 152, 20);
+		getContentPane().add(txtYPosition2);
 		
 		txtPrintInterval = new JTextField();
 		txtPrintInterval.setText("3600");
@@ -154,38 +150,92 @@ public class UserInterface extends JFrame{
 		getContentPane().add(lblPrintInterval);
 		
 		JTextPane txtpnBasedOnSeveral = new JTextPane();
-		txtpnBasedOnSeveral.setText("Based on your inputs, the gravity between the objects will be calculated until they either exit the region or collide. Positions must be less than 10,000. ");
-		txtpnBasedOnSeveral.setBounds(334, 200, 246, 78);
+		txtpnBasedOnSeveral.setText("Based on your inputs, the gravity between the objects will be calculated until they either exit the region or collide. "
+				+ "Positions must be less than 10,000 and Mass must be positive.\nNo zero nor empty values!"
+				+ "\nProgram can take a very long time to calculate all values. ");
+		txtpnBasedOnSeveral.setBounds(10, 289, 532, 122);
 		getContentPane().add(txtpnBasedOnSeveral);
+		
+
+		
 		
 		JButton btnCalculate = new JButton("Calculate");
 		btnCalculate.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				txtpnBasedOnSeveral.setText("Calculation Done");
+				ob.setName(txtName.getText());
+				ob.setMass(Double.parseDouble(txtMass.getText())); 
+				ob.setvelocX(Double.parseDouble(txtXVelocity.getText()));
+				ob.setvelocY(Double.parseDouble(txtYVelocity.getText()));
+				ob.setX(Double.parseDouble(txtXPosition.getText()));
+				ob.setvelocY(Double.parseDouble(txtYPosition.getText()));
+				ob2.setName(txtName2.getText());
+				ob2.setMass(Double.parseDouble(txtMass2.getText())); 
+				ob2.setvelocX(Double.parseDouble(txtXVelocity2.getText()));
+				ob2.setvelocY(Double.parseDouble(txtYVelocity2.getText()));
+				ob2.setX(Double.parseDouble(txtXPosition2.getText()));
+				ob2.setvelocY(Double.parseDouble(txtYPosition2.getText()));
+				Physics.setPrintInterval(Integer.parseInt(txtPrintInterval.getText()));
+
 				try {
-					PhysDriver.run();
+					String data = Physics.run(ob, ob2);
+					txtpnBasedOnSeveral.setText("Calculation Done \n"+data+" Check data file for more info.");
 				} catch (IOException e1) {
 					e1.printStackTrace();
 				}
 			}
 		});
-		btnCalculate.setBounds(373, 80, 169, 23);
+		btnCalculate.setBounds(352, 80, 190, 23);
 		getContentPane().add(btnCalculate);
 		
-		JButton btnDowloadReadableFile = new JButton("Dowload Readable File");
-		btnDowloadReadableFile.setBounds(373, 125, 169, 23);
-		getContentPane().add(btnDowloadReadableFile);
+		JButton btnOpenReadableData = new JButton("Open Readable Data");
+		btnOpenReadableData.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				try {
+					Desktop.getDesktop().open(new java.io.File("data.txt"));
+				} catch (IOException e1) {
+					e1.printStackTrace();
+				}
+			}
+		});
+		btnOpenReadableData.setBounds(352, 125, 190, 23);
+		getContentPane().add(btnOpenReadableData);
 		
-		JButton btnDownloadMathematicaFile = new JButton("Download Mathematica File");
-		btnDownloadMathematicaFile.setBounds(373, 168, 169, 23);
-		getContentPane().add(btnDownloadMathematicaFile);
+		JButton btnOpenMathematicaFile = new JButton("Open Mathematica File");
+		btnOpenMathematicaFile.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				try {
+					Desktop.getDesktop().open(new java.io.File("DataPlotter.nb"));
+				} catch (IOException e1) {
+					e1.printStackTrace();
+				}
+			}
+		});
+		btnOpenMathematicaFile.setBounds(352, 213, 190, 23);
+		getContentPane().add(btnOpenMathematicaFile);
+		
+		JButton btnOpenMathematicaData = new JButton("Open Mathematica Data");
+		btnOpenMathematicaData.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				try {
+					Desktop.getDesktop().open(new java.io.File("MathematicaData.txt"));
+				} catch (IOException | IllegalArgumentException e1) {
+					txtpnBasedOnSeveral.setText("Error getting or reading file.");
+					e1.printStackTrace();
+				}
+			}
+		});
+		btnOpenMathematicaData.setBounds(352, 168, 190, 23);
+		getContentPane().add(btnOpenMathematicaData);
 		
 	}
 	public static void main(String[] args) {
 		
 		UserInterface m = new UserInterface();
-		m.setSize(600, 320);
+		m.setSize(590, 470);
 		m.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		m.setVisible(true);
 		
