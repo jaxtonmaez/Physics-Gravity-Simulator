@@ -2,7 +2,7 @@
 This project takes information about 2 objects in space, and calculates the gravity between them and allows them to move. The 
 program stops if they collide, leave the region, or seem stable after 180,000 loops. Mathematica can be used to see graphs of 
 the movement. 
-
+**************************
 ***Important Notes***
 
 The UserInterface.java contains the main class and is the driver. 
