@@ -6,6 +6,8 @@ The UserInterface.java contains the main class and is the driver.
 
 DataPlotter.nb is a Mathematica File and can ONLY be used in Wolfram Mathematica! It works most the time. 
 
+If it keeps saying there is not enough memory for the calculation, set the PrintInterval to 180,000.
+
 The program writes the data to three files. The 'data.txt' file is a readable file with all the information labeled. The 
 'MathematicaData.txt' and MathematicaData2.txt' is a file readable by the 'DataPlotter.nb' file which is a Wolfram Mathematica file. Click 
 the Open Mathematica File 
@@ -21,6 +23,3 @@ the equation by the unit vector, to have a vector in R^2. Gravity is calculated 
 the time counter is increased by one. Once calculated, the amount each should move is calculated and the change in velocity is 
 calculated. The loop then repeats until they either leave the region, collide, or remain steady for at least time=180,000 
 seconds.  
-
-Admittedtly, Newton's Universal Law of Gravitation may not have been the best choice of equation for this application. But any higher 
-level gravity equation would be very complex to solve here.
