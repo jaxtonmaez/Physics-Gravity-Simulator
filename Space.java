@@ -19,7 +19,7 @@ public class Space
 		space = null;
 	}
 
-	public Space(int height, int width)  //creates a field
+	public Space(int height, int width)  //creates a region objects can exist in
 	{
 		space = new double [width][height];
 		this.width = width;
@@ -35,7 +35,7 @@ public class Space
 		return distance;
 	}
     
-    public static double[] Gravity(Object ob, Object ob2)
+    public static double[] Gravity(Object ob, Object ob2)   //returns gravity between objects in the form of vector values in an array.
     {
        
         double iComp1 = (bigG*ob.getMass()*ob2.getMass()*(ob2.getX()-ob.getX()))/Math.pow(Math.pow(ob2.getX()-ob.getX(),2) + Math.pow(ob2.getY()-ob.getY(),2),1.5);
@@ -47,7 +47,7 @@ public class Space
         return gravity;
     }
     
-    public static double[] Move(Object ob, Object ob2)  //return deltaX and deltaY for 1&2, return the delta array
+    public static double[] Move(Object ob, Object ob2)  //return change in X position and change in Y position both objects, as vectors in an array.
     {
         double[] gravity = Gravity(ob,ob2);
         double iComp1 = ob.getvelocX() + gravity[0]/2*ob.getMass();
@@ -63,7 +63,7 @@ public class Space
         
         return move;    
     }
-    public static double[] deltaVeloc(Object ob, Object ob2)
+    public static double[] deltaVeloc(Object ob, Object ob2) //return change in velocity for both objects as vectors in an array. 
     {
     	double[] gravity = Gravity(ob,ob2);
         double iComp1 = ob.getvelocX()+gravity[0];
