@@ -1,0 +1,115 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 12.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      4170,        107]
+NotebookOptionsPosition[      3872,         94]
+NotebookOutlinePosition[      4217,        109]
+CellTagsIndexPosition[      4174,        106]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", " ", "\[IndentingNewLine]", " ", 
+   RowBox[{
+   "*", " ", "Jaxton", " ", "Maez", "\[IndentingNewLine]", "*", " ", "CS", 
+    " ", "1410", " ", "Physics", " ", "Simulator", " ", "Project", 
+    "\[IndentingNewLine]", "*", " ", 
+    RowBox[{
+     RowBox[{"12", "/", "6"}], "/", "19"}]}], "\[IndentingNewLine]", "*)"}], 
+  "\[IndentingNewLine]", "\[IndentingNewLine]", 
+  RowBox[{"(*", " ", 
+   RowBox[{
+   "Plot", " ", "data", " ", "from", " ", "the", " ", "gravity", " ", 
+    "Physics", " ", "Simulator", " ", "java", " ", "project", " ", "using", 
+    " ", 
+    RowBox[{"the", " ", "'"}], 
+    RowBox[{"MathematicaData", ".", 
+     RowBox[{"txt", "'"}]}], " ", "file"}], " ", "*)"}], 
+  "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"SetDirectory", "[", 
+     RowBox[{"NotebookDirectory", "[", "]"}], "]"}], " ", ";"}], 
+   "            ", 
+   RowBox[{"(*", " ", 
+    RowBox[{"set", " ", "notebook", " ", "directory"}], " ", "*)"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"data", " ", "=", " ", 
+     RowBox[{"Import", "[", 
+      RowBox[{"\"\<MathematicaData.txt\>\"", ",", "\"\<CSV\>\""}], "]"}]}], 
+    ";"}], "    ", 
+   RowBox[{"(*", 
+    RowBox[{"Import", " ", "data"}], "*)"}], "    ", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"data2", " ", "=", " ", 
+     RowBox[{"Import", "[", 
+      RowBox[{"\"\<MathematicaData2.txt\>\"", ",", "\"\<CSV\>\""}], "]"}]}], 
+    ";"}], " ", "\[IndentingNewLine]", 
+   RowBox[{"ListPointPlot3D", "[", 
+    RowBox[{"data", ",", " ", 
+     RowBox[{"ViewPoint", " ", "\[Rule]", "  ", "Left"}]}], "]"}], "  ", 
+   RowBox[{"(*", " ", 
+    RowBox[{
+     RowBox[{
+     "3", "d", " ", "plot", " ", "of", " ", "objects", " ", "x", " ", "vs", 
+      " ", "y", " ", 
+      RowBox[{"vs", ".", " ", "time", ".", " ", "A"}], " ", "smaller", " ", 
+      "PrintInterval", " ", 
+      RowBox[{"(", 
+       RowBox[{"greater", " ", "than", " ", "100"}], ")"}], " ", "creates", 
+      " ", "a", " ", "smoother", " ", 
+      RowBox[{"graph", ".", " ", 
+       RowBox[{"Press", " ", "'"}]}], "Shift"}], "+", 
+     RowBox[{"Enter", "'"}]}], " ", "*)"}], "   ", "\[IndentingNewLine]", 
+   RowBox[{"ListPointPlot3D", "[", 
+    RowBox[{"data2", ",", " ", 
+     RowBox[{"ViewPoint", " ", "\[Rule]", "  ", "Left"}]}], 
+    "]"}]}]}]], "Input",
+ CellChangeTimes->{{3.7845604499542046`*^9, 3.7845605510506287`*^9}, {
+  3.784560723167992*^9, 3.784560731152296*^9}, {3.7845611403489914`*^9, 
+  3.784561161823431*^9}, {3.7845612002572384`*^9, 3.784561201679998*^9}, {
+  3.7845633891614337`*^9, 3.784563424218052*^9}, {3.7845635425370007`*^9, 
+  3.7845636104393415`*^9}, {3.784569649938038*^9, 3.7845696572544746`*^9}, {
+  3.784576158415017*^9, 3.784576161991458*^9}, {3.7845763981726804`*^9, 
+  3.7845764062940636`*^9}, {3.7845764504777193`*^9, 3.7845764595492973`*^9}, {
+  3.7845766578924704`*^9, 3.7845767512978716`*^9}, {3.784577279015716*^9, 
+  3.78457735220929*^9}, {3.784577503885922*^9, 3.784577535913017*^9}, {
+  3.784578253291689*^9, 3.7845783183151617`*^9}, {3.7845783729120913`*^9, 
+  3.784578391210106*^9}, {3.7845784711488595`*^9, 3.784578524802643*^9}, {
+  3.7845786280059433`*^9, 3.784578787939434*^9}, {3.7845788732830124`*^9, 
+  3.7845788742231655`*^9}},ExpressionUUID->"79a5e9f4-223c-4854-9520-\
+3eca7f839cbf"]
+},
+WindowSize->{1920, 997},
+WindowMargins->{{1912, Automatic}, {Automatic, -8}},
+FrontEndVersion->"12.0 for Microsoft Windows (64-bit) (April 8, 2019)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 3310, 72, 238, "Input",ExpressionUUID->"79a5e9f4-223c-4854-9520-3eca7f839cbf"]
+}
+]
+*)
+
