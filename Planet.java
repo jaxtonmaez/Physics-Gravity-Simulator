@@ -18,7 +18,7 @@ public class Planet extends Object
 		velocX = 0;
 		velocY = 0;
 	}
-    public Planet(String name, double mass, double velocX, double velocY, Space sp, double x, double y) //creates a planet with these parameters
+    public Planet(String name, double mass, double velocX, double velocY, Space sp, double x, double y) //creates an object with these parameters
 	{
 		this.name = name;
 		this.mass = mass;
@@ -30,7 +30,7 @@ public class Planet extends Object
 	}
 	
 	
-	public double getMass(){return mass;}
+	public double getMass(){return mass;}                   //getters and setters
 	public double getvelocX(){return velocX;}
 	public double getvelocY(){return velocY;}
 	public double getX(){return x;}
