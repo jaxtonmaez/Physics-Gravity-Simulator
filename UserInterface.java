@@ -31,11 +31,11 @@ public class UserInterface extends JFrame{
 	private static Object ob2 = new Planet("Null", 200000, 0, 0, sp, 0, 0);
 	
 	public UserInterface() {
-		getContentPane().setBackground(Color.LIGHT_GRAY);
-		setTitle("Gravity");
+		getContentPane().setBackground(Color.LIGHT_GRAY);   //Lots of labels and text fields...
+		setTitle("Object Gravity Calculator");
 		getContentPane().setLayout(null);
 		
-		JLabel lblObjectOne = new JLabel("Object One:");
+		JLabel lblObjectOne = new JLabel("Object One:"); 
 		lblObjectOne.setBounds(10, 0, 76, 14);
 		getContentPane().add(lblObjectOne);
 		
@@ -104,19 +104,19 @@ public class UserInterface extends JFrame{
 		getContentPane().add(txtYVelocity2);
 		
 		txtXPosition2 = new JTextField();
-		txtXPosition2.setText("15");
+		txtXPosition2.setText("11.5");
 		txtXPosition2.setColumns(10);
 		txtXPosition2.setBounds(172, 214, 152, 20);
 		getContentPane().add(txtXPosition2);
 		
 		txtYPosition2 = new JTextField();
-		txtYPosition2.setText("15");
+		txtYPosition2.setText("11.5");
 		txtYPosition2.setColumns(10);
 		txtYPosition2.setBounds(172, 258, 152, 20);
 		getContentPane().add(txtYPosition2);
 		
 		txtPrintInterval = new JTextField();
-		txtPrintInterval.setText("3600");
+		txtPrintInterval.setText("1500");
 		txtPrintInterval.setBounds(373, 37, 86, 20);
 		getContentPane().add(txtPrintInterval);
 		txtPrintInterval.setColumns(10);
@@ -149,41 +149,43 @@ public class UserInterface extends JFrame{
 		lblPrintInterval.setBounds(373, 25, 86, 14);
 		getContentPane().add(lblPrintInterval);
 		
-		JTextPane txtpnBasedOnSeveral = new JTextPane();
-		txtpnBasedOnSeveral.setText("Based on your inputs, the gravity between the objects will be calculated until they either exit the region or collide. "
-				+ "Positions must be less than 10,000 and Mass must be positive.\nNo zero nor empty values!"
-				+ "\nProgram can take a very long time to calculate all values. ");
-		txtpnBasedOnSeveral.setBounds(10, 289, 532, 122);
-		getContentPane().add(txtpnBasedOnSeveral);
+		JTextPane messageBox = new JTextPane();
+		messageBox.setText("Based on your inputs, the gravity between the objects will be calculated until they either exit the region or collide. "
+				+ "Positions and Mass should be positive."
+				+ "\n\n\tProgram can take a very long time to calculate all values. "
+				+ "\n\nIf you have Wolfram Mathematica installed and have run the calculation, press 'Open Mathematica File' and press 'Shift+Enter' "
+				+ "to generate a plot.");
+		messageBox.setBounds(10, 289, 532, 122);
+		getContentPane().add(messageBox);
 		
-
-		
-		
-		JButton btnCalculate = new JButton("Calculate");
+		JButton btnCalculate = new JButton("Calculate");                     //When clicked, set all values from text fields for both objects.
 		btnCalculate.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				ob.setName(txtName.getText());
-				ob.setMass(Double.parseDouble(txtMass.getText())); 
-				ob.setvelocX(Double.parseDouble(txtXVelocity.getText()));
-				ob.setvelocY(Double.parseDouble(txtYVelocity.getText()));
-				ob.setX(Double.parseDouble(txtXPosition.getText()));
-				ob.setvelocY(Double.parseDouble(txtYPosition.getText()));
-				ob2.setName(txtName2.getText());
-				ob2.setMass(Double.parseDouble(txtMass2.getText())); 
-				ob2.setvelocX(Double.parseDouble(txtXVelocity2.getText()));
-				ob2.setvelocY(Double.parseDouble(txtYVelocity2.getText()));
-				ob2.setX(Double.parseDouble(txtXPosition2.getText()));
-				ob2.setvelocY(Double.parseDouble(txtYPosition2.getText()));
-				Physics.setPrintInterval(Integer.parseInt(txtPrintInterval.getText()));
-
 				try {
-					String data = Physics.run(ob, ob2);
-					txtpnBasedOnSeveral.setText("Calculation Done \n"+data+" Check data file for more info.");
-				} catch (IOException e1) {
-					e1.printStackTrace();
+					ob.setName(txtName.getText());  //change String to Double 
+					ob.setMass(Double.parseDouble(txtMass.getText())); 
+					ob.setvelocX(Double.parseDouble(txtXVelocity.getText()));
+					ob.setvelocY(Double.parseDouble(txtYVelocity.getText()));
+					ob.setX(Double.parseDouble(txtXPosition.getText()));
+					ob.setvelocY(Double.parseDouble(txtYPosition.getText()));
+					ob2.setName(txtName2.getText());
+					ob2.setMass(Double.parseDouble(txtMass2.getText())); 
+					ob2.setvelocX(Double.parseDouble(txtXVelocity2.getText()));
+					ob2.setvelocY(Double.parseDouble(txtYVelocity2.getText()));
+					ob2.setX(Double.parseDouble(txtXPosition2.getText()));
+					ob2.setvelocY(Double.parseDouble(txtYPosition2.getText()));
+					Physics.setPrintInterval(Integer.parseInt(txtPrintInterval.getText()));
+					String data = Physics.run(ob, ob2);                                       //send the objects to physics and calculate
+					messageBox.setText("Calculation Done \n"+data+" Check data file for more info.");
 				}
+				catch(OutOfMemoryError | IOException e1) {messageBox.setText("Not enough memory to finish this calculation. Try closing open files and programs."
+						+ "\nTry increasing the print interval. Some data may have been calculated as is, check data files.");
+				}
+				catch(ArithmeticException e1) {messageBox.setText("Error: cannot divide by zero. Check your Print Interval.");}
+				catch(NumberFormatException e1) {messageBox.setText("Make sure no textfields are empty, or have letters where there should be values.");}
 			}
+			
 		});
 		btnCalculate.setBounds(352, 80, 190, 23);
 		getContentPane().add(btnCalculate);
@@ -193,9 +195,9 @@ public class UserInterface extends JFrame{
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				try {
-					Desktop.getDesktop().open(new java.io.File("data.txt"));
-				} catch (IOException e1) {
-					e1.printStackTrace();
+					Desktop.getDesktop().open(new java.io.File("data.txt"));     //find the file and open it
+				} catch (IOException | IllegalArgumentException e1) {
+					messageBox.setText("Error while finding or reading data file.");
 				}
 			}
 		});
@@ -207,9 +209,9 @@ public class UserInterface extends JFrame{
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				try {
-					Desktop.getDesktop().open(new java.io.File("DataPlotter.nb"));
-				} catch (IOException e1) {
-					e1.printStackTrace();
+					Desktop.getDesktop().open(new java.io.File("DataPlotter.nb"));  //find the file and open it
+				} catch (IOException | IllegalArgumentException e1) {
+					messageBox.setText("Error while finding Mathematica file. Check if it exists alongside the java files.");
 				}
 			}
 		});
@@ -221,10 +223,10 @@ public class UserInterface extends JFrame{
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				try {
-					Desktop.getDesktop().open(new java.io.File("MathematicaData.txt"));
+					Desktop.getDesktop().open(new java.io.File("MathematicaData.txt")); //find the files and open them
+					Desktop.getDesktop().open(new java.io.File("MathematicaData2.txt"));
 				} catch (IOException | IllegalArgumentException e1) {
-					txtpnBasedOnSeveral.setText("Error getting or reading file.");
-					e1.printStackTrace();
+					messageBox.setText("Error while finding or reading Mathematica Data files.");
 				}
 			}
 		});
