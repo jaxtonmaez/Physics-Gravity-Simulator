@@ -180,7 +180,7 @@ public class UserInterface extends JFrame{
 					messageBox.setText("Calculation Done \n"+data+" Check data file for more info.");
 				}
 				catch(OutOfMemoryError | IOException e1) {messageBox.setText("Not enough memory to finish this calculation. Try closing open files and programs."
-						+ "\nTry increasing the print interval. Some data may have been calculated as is, check data files.");
+						+ "\nTry increasing the print interval, or set it to 180,000. Some data may have been calculated as is, check data files.");
 				}
 				catch(ArithmeticException e1) {messageBox.setText("Error: cannot divide by zero. Check your Print Interval.");}
 				catch(NumberFormatException e1) {messageBox.setText("Make sure no textfields are empty, or have letters where there should be values.");}
