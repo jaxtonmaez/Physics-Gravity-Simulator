@@ -11,13 +11,13 @@ DataPlotter.nb is a Mathematica File and can ONLY be used in Wolfram Mathematica
 
 If it keeps saying there is not enough memory for the calculation, set the PrintInterval to 180,000.
 
-********************
+**************************
 
 Details: 
 
-The program writes the data to three files. The 'data.txt' file is a readable file with all the information labeled. The 
-'MathematicaData.txt' and MathematicaData2.txt' is a file readable by the 'DataPlotter.nb' file which is a Wolfram Mathematica 
-file. Click the Open Mathematica File button, press 'Shift-Enter' while in Mathematica. This will give you a graph of the 
+The program writes the data to three files. The 'data.txt' is a readable file with all the information labeled. The 
+'MathematicaData.txt' and MathematicaData2.txt' are files readable by the 'DataPlotter.nb' file which is a Wolfram Mathematica 
+notebook. Click the Open Mathematica File button, press 'Shift-Enter' while in Mathematica. This will give you a graph of the 
 objects positions vs time. 
 
 There is a Print Interval variable. Default is 1500. This means every 1500 seconds (loops), data is written into the files. If 
