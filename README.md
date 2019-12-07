@@ -11,6 +11,9 @@ DataPlotter.nb is a Mathematica File and can ONLY be used in Wolfram Mathematica
 
 If it keeps saying there is not enough memory for the calculation, set the PrintInterval to 180,000.
 
+If the project does not complete or has any issues running, included are images of the program working fully. They are in the 
+'Example_of_Project_Working.zip' file.
+
 **************************
 
 Details: 
